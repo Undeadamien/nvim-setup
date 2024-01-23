@@ -20,7 +20,7 @@ format_file = function()
 	elseif vim.bo.filetype == "typescript" then
 		vim.cmd("silent :!prettier % --write --quote-props consistent --tab-width 4")
 	elseif vim.bo.filetype == "html" then
-		vim.cmd("silent :!prettier % --write --print-width 100")
+		vim.cmd("silent :!prettier % --write --print-width 120")
 	elseif vim.bo.filetype == "css" then
 		vim.cmd("silent :!prettier % --write")
 	elseif vim.bo.filetype == "json" then
