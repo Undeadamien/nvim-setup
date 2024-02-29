@@ -7,6 +7,7 @@ return require("packer").startup(function(use)
 
 	--ColorScheme
 	use("rebelot/kanagawa.nvim")
+	use("folke/tokyonight.nvim")
 
 	--TreeSitter
 	use("nvim-treesitter/nvim-treesitter")
