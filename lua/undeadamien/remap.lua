@@ -1,9 +1,12 @@
 --Leader
 vim.g.mapleader = " "
 
+--Source
+vim.keymap.set("n", "<leader><leader>", "<silent>:so<Enter>")
+
 --Linux
-vim.keymap.set("n", "<leader>ds", ":Ex ~/.config/nvim <Enter>")
-vim.keymap.set("n", "<leader>dc", ":Ex ~/Code <Enter>")
+vim.keymap.set("n", "<leader>ds", ":cd ~/.config/nvim<Enter>:E ~/.config/ nvim<Enter>")
+vim.keymap.set("n", "<leader>dc", ":cd ~/Code<Enter>:E ~/Code <Enter>")
 
 --Copy and Paste
 vim.keymap.set("n", "<leader>y", '"+y')

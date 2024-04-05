@@ -8,6 +8,8 @@ return require("packer").startup(function(use)
 	--ColorScheme
 	use("rebelot/kanagawa.nvim")
 	use("folke/tokyonight.nvim")
+       use { "catppuccin/nvim", as = "catppuccin" }
+       use { "rose-pine/neovim", name = "rose-pine" }
 
 	--TreeSitter
 	use("nvim-treesitter/nvim-treesitter")
