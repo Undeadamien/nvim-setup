@@ -2,8 +2,8 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
-vim.opt.laststatus=2
-vim.opt.statusline="%F"
+vim.opt.laststatus = 2
+vim.opt.statusline = "%F"
 --vim.opt.list=true
 
 --Tabulation
@@ -14,7 +14,7 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 
 --Directory
-vim.opt.autochdir = true
+vim.opt.autochdir = false
 
 --Text
 vim.opt.wrap = false

@@ -1,36 +1,26 @@
-format_file = function()
-	--Shfmt
-	if vim.bo.filetype == "sh" then
-		vim.cmd("silent :!shfmt --write %")
+local formatters = {
+	c = "clang-format -i --style='google' %",
+	cmake = "cmake-format % -i",
+	cpp = "clang-format -i --style='google' %",
+	css = "prettier % --write",
+	h = "clang-format -i --style='google' %",
+	hpp = "clang-format -i --style='google' %",
+	html = "prettier % --write --print-width 120",
+	javascript = "prettier % --write --quote-props consistent",
+	json = "prettier % --write --quote-props consistent",
+	lua = "stylua %",
+	markdown = "prettier % --write --quote-props consistent",
+	python = "isort % && black %",
+	sh = "shfmt --write %",
+	typescript = "prettier % --write --quote-props consistent --tab-width 4",
+}
 
-	--Python
-	elseif vim.bo.filetype == "python" then
-		vim.cmd("silent :!isort %")
-		vim.cmd("silent :!black %")
-
-	--Clang
-	elseif vim.bo.filetype == "cpp" then
-		vim.cmd("silent :!clang-format -i --style=google %")
-	elseif vim.bo.filetype == "c" then
-		vim.cmd("silent :!clang-format -i --style=google %")
-
-	--Prettier
-	elseif vim.bo.filetype == "javascript" then
-		vim.cmd("silent :!prettier % --write --quote-props consistent")
-	elseif vim.bo.filetype == "typescript" then
-		vim.cmd("silent :!prettier % --write --quote-props consistent --tab-width 4")
-	elseif vim.bo.filetype == "html" then
-		vim.cmd("silent :!prettier % --write --print-width 120")
-	elseif vim.bo.filetype == "css" then
-		vim.cmd("silent :!prettier % --write")
-	elseif vim.bo.filetype == "json" then
-		vim.cmd("silent :!prettier % --write --quote-props consistent")
-	elseif vim.bo.filetype == "markdown" then
-		vim.cmd("silent :!prettier % --write --quote-props consistent")
-
-	--Stylua
-	elseif vim.bo.filetype == "lua" then
-		vim.cmd("silent :!stylua %")
+local function format_file()
+	local filetype = vim.bo.filetype
+	local formatter = formatters[filetype]
+	if formatter then
+		local command = "silent !" .. formatter
+		vim.cmd(command)
 	end
 end
 
