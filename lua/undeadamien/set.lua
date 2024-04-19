@@ -1,6 +1,6 @@
 --42
-vim.api.nvim_set_var('user42', 'damient')
-vim.api.nvim_set_var('mail42', 'damient@student.42.fr')
+vim.api.nvim_set_var("user42", "damient")
+vim.api.nvim_set_var("mail42", "damient@student.42.fr")
 
 --Visual Help
 vim.opt.number = true

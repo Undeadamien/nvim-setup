@@ -14,8 +14,8 @@ return require("packer").startup(function(use)
 	--42
 	use("42Paris/42header")
 	use({
-	    "vinicius507/norme.nvim",
-	    requires = { "jose-elias-alvarez/null-ls.nvim" }
+		"vinicius507/norme.nvim",
+		requires = { "jose-elias-alvarez/null-ls.nvim" },
 	})
 
 	--TreeSitter
