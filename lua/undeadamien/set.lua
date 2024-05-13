@@ -10,8 +10,8 @@ vim.opt.cursorline = true
 --Tabulation
 vim.opt.autoindent = true
 vim.opt.smartindent = true
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 8
+vim.opt.softtabstop = 8
 
 --Directory
 vim.opt.autochdir = false
