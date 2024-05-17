@@ -7,5 +7,11 @@ local colors = {
 	"tokyonight-moon",
 }
 
-local selectedColorScheme = colors[math.random(#colors)]
-vim.cmd("colorscheme " .. selectedColorScheme)
+local function NewColorScheme()
+	local scheme = colors[math.random(#colors)]
+	vim.cmd("colorscheme " .. scheme)
+end
+
+NewColorScheme()
+
+vim.api.nvim_create_user_command("NewColorScheme", NewColorScheme, {})
