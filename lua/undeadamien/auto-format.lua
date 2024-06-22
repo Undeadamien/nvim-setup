@@ -1,16 +1,10 @@
 local function format_file()
-	local filetype = vim.bo.filetype
-	if filetype == "c" or filetype == "cpp" then
-		vim.api.nvim_command("silent w | silent !c_formatter_42 < % %")
-	end
+	vim.api.nvim_command("silent w | silent !python3 -m c_formatter_42 < % %")
 end
 
 local function create_header()
-	local filetype = vim.bo.filetype
-	if filetype == "c" or filetype == "cpp" then
-		vim.api.nvim_command("silent Stdheader")
-	end
+	vim.api.nvim_command("silent Stdheader")
 end
 
-vim.api.nvim_create_autocmd({ "BufWritePost" }, { callback = format_file })
-vim.api.nvim_create_autocmd({ "BufEnter" }, { callback = create_header })
+vim.api.nvim_create_autocmd({ "BufWritePost" }, { pattern = {"*.h", "*.c"}, callback = format_file })
+vim.api.nvim_create_autocmd({ "BufEnter" }, {  pattern = {"*.h", "*.c"}, callback = create_header })

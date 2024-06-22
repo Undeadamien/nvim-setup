@@ -3,7 +3,7 @@ return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	--Mason
-	use({ "williamboman/mason.nvim", run = ":MasonUpdate" })
+	use({ "williamboman/mason.nvim"})
 
 	--ColorScheme
 	use("rebelot/kanagawa.nvim")
