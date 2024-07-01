@@ -1,7 +1,7 @@
 local lsp = require("lsp-zero")
 local cmp = require("cmp")
-lsp.preset("recommended")
 
+lsp.preset("recommended")
 lsp.setup_nvim_cmp({
 	mapping = lsp.defaults.cmp_mappings({
 		["<C-n>"] = function()
@@ -23,10 +23,9 @@ lsp.setup_nvim_cmp({
 	}),
 	completion = { autocomplete = false },
 })
+lsp.setup()
 
 vim.diagnostic.config({
 	virtual_text = true,
 	signs = false,
 })
-
-lsp.setup()
