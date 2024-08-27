@@ -11,9 +11,15 @@ return require("packer").startup(function(use)
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use({ "rose-pine/neovim", name = "rose-pine" })
 
+	--42
+	use("42Paris/42header")
+
 	--TreeSitter
 	use("nvim-treesitter/nvim-treesitter")
 	use("nvim-treesitter/nvim-treesitter-context")
+
+	--ZenMode
+	use("folke/zen-mode.nvim")
 
 	--Telescope
 	use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } })

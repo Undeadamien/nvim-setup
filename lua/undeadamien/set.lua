@@ -1,12 +1,17 @@
+--42
+vim.api.nvim_set_var("user42", "dtrala")
+vim.api.nvim_set_var("mail42", "dtrala@student.42.fr")
+
 --Visual Help
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
+vim.opt.list = true
 
 --Tabulation
 vim.opt.autoindent = true
 vim.opt.smartindent = true
-vim.opt.expandtab = true
+vim.opt.expandtab = false
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.tabstop = 4

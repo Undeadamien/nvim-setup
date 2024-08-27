@@ -1,9 +1,30 @@
-local lsp_zero = require("lsp-zero")
-local lspconfig = require("lspconfig")
+local lsp = require("lsp-zero")
+local cmp = require("cmp")
 
-lsp_zero.preset("recommended")
-lsp_zero.setup()
-
+lsp.preset("recommended")
+lsp.setup_nvim_cmp({
+	mapping = lsp.defaults.cmp_mappings({
+		["<C-n>"] = function()
+			if not cmp.visible() then
+				cmp.complete()
+			else
+				cmp.select_next_item()
+			end
+		end,
+		["<C-p>"] = function()
+			if not cmp.visible() then
+				cmp.complete()
+			else
+				cmp.select_prev_item()
+			end
+		end,
+		["<Tab>"] = vim.NIL,
+		["<S-Tab>"] = vim.NIL,
+	}),
+	completion = { autocomplete = false },
+})
+lsp.setup()
+vim.diagnostic.disable()
 vim.diagnostic.config({
 	virtual_text = true,
 	signs = false,
