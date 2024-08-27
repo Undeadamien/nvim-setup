@@ -13,9 +13,16 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-	pattern = { "*.sh" },
+	pattern = { "*.sh", "*.bashrc", "*.zshrc" },
 	callback = function()
 		vim.api.nvim_command("silent !shfmt --write %")
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+	pattern = { "*.py" },
+	callback = function()
+		vim.api.nvim_command("silent !black %")
 	end,
 })
 

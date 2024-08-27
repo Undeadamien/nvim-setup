@@ -24,7 +24,7 @@ lsp.setup_nvim_cmp({
 	completion = { autocomplete = false },
 })
 lsp.setup()
-
+vim.diagnostic.disable()
 vim.diagnostic.config({
 	virtual_text = true,
 	signs = false,
