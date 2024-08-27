@@ -7,6 +7,7 @@ local colors = {
 	"tokyonight-moon",
 }
 
+
 local previous_scheme = nil
 
 local function NewColorScheme()
@@ -15,6 +16,7 @@ local function NewColorScheme()
 		scheme = colors[math.random(#colors)]
 	until scheme ~= previous_scheme
 	previous_scheme = scheme
+
 	vim.cmd("colorscheme " .. scheme)
 end
 
