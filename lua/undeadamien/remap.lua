@@ -18,4 +18,4 @@ vim.keymap.set("v", "<leader>p", '"+p')
 vim.keymap.set("v", "<leader>P", '"+P')
 
 --Norminette
-vim.keymap.set("n", "<leader>n", ":!norminette src/ -R CheckDefine | grep -v OK<CR>")
+vim.keymap.set("n", "<leader>n", ":!norminette srcs/ -R CheckDefine | grep -v OK<CR>")

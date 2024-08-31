@@ -1,4 +1,11 @@
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+	pattern = { "*.hpp", "*.cpp" },
+	callback = function()
+		vim.api.nvim_command("silent !clang-format --style=google -i %")
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	pattern = { "*.h", "*.c" },
 	callback = function()
 		vim.api.nvim_command("silent !python3 -m c_formatter_42 < % %")
@@ -23,12 +30,5 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	pattern = { "*.py" },
 	callback = function()
 		vim.api.nvim_command("silent !black %")
-	end,
-})
-
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-	pattern = { "*.h", "*.c" },
-	callback = function()
-		vim.api.nvim_command("silent Stdheader")
 	end,
 })

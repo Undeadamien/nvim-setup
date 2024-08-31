@@ -6,6 +6,7 @@ vim.api.nvim_set_var("mail42", "dtrala@student.42.fr")
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
 vim.opt.list = true
 
 --Tabulation
