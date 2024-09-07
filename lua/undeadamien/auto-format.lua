@@ -1,27 +1,34 @@
-local formatters = {
-	c = "clang-format -i --style='google' %",
-	cmake = "cmake-format % -i",
-	cpp = "clang-format -i --style='google' %",
-	css = "prettier % --write",
-	h = "clang-format -i --style='google' %",
-	hpp = "clang-format -i --style='google' %",
-	html = "prettier % --write --print-width 120",
-	javascript = "prettier % --write --quote-props consistent",
-	json = "prettier % --write --quote-props consistent",
-	lua = "stylua %",
-	markdown = "prettier % --write --quote-props consistent",
-	python = "isort % && black %",
-	sh = "shfmt --write %",
-	typescript = "prettier % --write --quote-props consistent --tab-width 4",
-}
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+	pattern = { "*.hpp", "*.cpp" },
+	callback = function()
+		vim.api.nvim_command("silent !clang-format --style=google -i %")
+	end,
+})
 
-local function format_file()
-	local filetype = vim.bo.filetype
-	local formatter = formatters[filetype]
-	if formatter then
-		local command = "silent !" .. formatter
-		vim.cmd(command)
-	end
-end
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+	pattern = { "*.h", "*.c" },
+	callback = function()
+		vim.api.nvim_command("silent !python3 -m c_formatter_42 < % %")
+	end,
+})
 
-vim.api.nvim_create_autocmd({ "BufWritePost" }, { callback = format_file })
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+	pattern = { "*.lua" },
+	callback = function()
+		vim.api.nvim_command("silent !stylua %")
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+	pattern = { "*.sh", "*.bashrc", "*.zshrc" },
+	callback = function()
+		vim.api.nvim_command("silent !shfmt --write %")
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+	pattern = { "*.py" },
+	callback = function()
+		vim.api.nvim_command("silent !isort % && black %")
+	end,
+})

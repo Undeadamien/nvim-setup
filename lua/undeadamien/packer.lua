@@ -15,6 +15,9 @@ return require("packer").startup(function(use)
 	use("nvim-treesitter/nvim-treesitter")
 	use("nvim-treesitter/nvim-treesitter-context")
 
+	--ZenMode
+	use("folke/zen-mode.nvim")
+
 	--Telescope
 	use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } })
 
@@ -34,6 +37,7 @@ return require("packer").startup(function(use)
 		},
 	})
 
-	--GitHub
+	--Git
 	use("tpope/vim-fugitive")
+	use("lewis6991/gitsigns.nvim")
 end)

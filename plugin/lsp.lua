@@ -1,10 +1,9 @@
-local lsp_zero = require("lsp-zero")
-local lspconfig = require("lspconfig")
+local lsp = require("lsp-zero")
 
-lsp_zero.preset("recommended")
-lsp_zero.setup()
+lsp.preset("recommended")
+lsp.setup()
 
 vim.diagnostic.config({
 	virtual_text = true,
-	signs = false,
+	signs = true,
 })
