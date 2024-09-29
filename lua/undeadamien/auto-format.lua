@@ -5,12 +5,14 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	end,
 })
 
+--[[
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	pattern = { "*.h", "*.c" },
 	callback = function()
 		vim.api.nvim_command("silent !python3 -m c_formatter_42 < % %")
 	end,
 })
+--]]
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	pattern = { "*.lua" },

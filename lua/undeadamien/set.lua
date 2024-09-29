@@ -8,6 +8,7 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 vim.opt.list = true
+vim.opt.signcolumn = "yes"
 
 --Tabulation
 vim.opt.autoindent = true
