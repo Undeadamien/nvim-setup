@@ -18,6 +18,10 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.tabstop = 4
 
+--Split
+vim.opt.splitbelow = false
+vim.opt.splitright = false
+
 --Directory
 vim.opt.autochdir = false
 
