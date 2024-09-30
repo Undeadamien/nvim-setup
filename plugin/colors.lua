@@ -1,12 +1,10 @@
 math.randomseed(os.time())
 local colors = {
 	"kanagawa-dragon",
-	"kanagawa",
+	"poimandres",
+	"rose-pine",
 	"tokyonight-night",
-	"tokyonight-storm",
-	"tokyonight-moon",
 }
-
 
 local previous_scheme = nil
 

@@ -8,7 +8,7 @@ return require("packer").startup(function(use)
 	--ColorScheme
 	use("rebelot/kanagawa.nvim")
 	use("folke/tokyonight.nvim")
-	use({ "catppuccin/nvim", as = "catppuccin" })
+	use("olivercederborg/poimandres.nvim")
 	use({ "rose-pine/neovim", name = "rose-pine" })
 
 	--42
