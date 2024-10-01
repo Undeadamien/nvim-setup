@@ -6,7 +6,7 @@ end
 
 vim.api.nvim_create_autocmd("BufEnter", {
 	callback = function()
-		require("lualine").refresh() -- Refresh Lualine status line
+		require("lualine").refresh()
 	end,
 })
 
