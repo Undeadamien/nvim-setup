@@ -21,6 +21,9 @@ return require("packer").startup(function(use)
 	--ZenMode
 	use("folke/zen-mode.nvim")
 
+	--LuaLine
+	use({ "nvim-lualine/lualine.nvim", requires = { "nvim-tree/nvim-web-devicons", opt = true } })
+
 	--Telescope
 	use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } })
 
