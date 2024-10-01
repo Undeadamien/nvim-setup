@@ -11,12 +11,16 @@ local colors = {
 
 local previous_scheme = nil
 
-local function LinkColor()
-	local hl = vim.api.nvim_get_hl_by_name("CursorLine", true)
-	vim.api.nvim_set_hl(0, "CursorColumn", hl)
-
+local function ChangeColor()
+	local cursor_hl = vim.api.nvim_get_hl_by_name("CursorLine", true)
 	local normal_hl = vim.api.nvim_get_hl_by_name("Normal", true)
+	local number_hl = vim.api.nvim_get_hl_by_name("LineNr", true)
+	local status_hl = vim.api.nvim_get_hl_by_name("StatusLine", true)
+
+	vim.api.nvim_set_hl(0, "CursorColumn", cursor_hl)
+	vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = normal_hl.background })
 	vim.api.nvim_set_hl(0, "NormalNC", normal_hl)
+	vim.api.nvim_set_hl(0, "WinSeparator", { fg = number_hl.foreground })
 end
 
 local function NewColorScheme()
@@ -30,7 +34,7 @@ end
 
 vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 	callback = function()
-		LinkColor()
+		ChangeColor()
 	end,
 })
 
