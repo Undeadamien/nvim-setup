@@ -10,6 +10,7 @@ return require("packer").startup(function(use)
 	use("folke/tokyonight.nvim")
 	use("olivercederborg/poimandres.nvim")
 	use({ "rose-pine/neovim", name = "rose-pine" })
+	use("slugbyte/lackluster.nvim")
 
 	--42
 	use("42Paris/42header")
