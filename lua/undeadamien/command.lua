@@ -9,8 +9,11 @@ local function create_cpp_class()
 
 class %s {
 public:
-%s();
-~%s();
+    %s();
+    %s(const %s& other);            
+    %s& operator=(const %s& other); 
+    ~%s();
+
 protected:
 private:
 };
@@ -22,13 +25,18 @@ private:
 		class_name,
 		class_name,
 		class_name,
-		define_guard
+		class_name,
+		class_name,
+		class_name,
+		class_name
 	)
 
 	vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.split(class_template, "\n"))
 	vim.cmd("write")
-	vim.api.nvim_command("silent Stdheader")
-	vim.api.nvim_command("silent !clang-format --style=google -i %")
+	vim.defer_fn(function()
+		vim.cmd("Stdheader")
+		vim.cmd("write")
+	end, 50)
 	vim.cmd("edit!")
 end
 
