@@ -4,6 +4,7 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 vim.opt.list = true
+vim.opt.signcolumn = "yes"
 
 --Tabulation
 vim.opt.autoindent = true
@@ -12,6 +13,10 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.tabstop = 4
+
+--Split
+vim.opt.splitbelow = false
+vim.opt.splitright = false
 
 --Directory
 vim.opt.autochdir = false
@@ -30,7 +35,7 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 --Undo
-vim.opt.undodir = vim.fn.expand("~/.config/nvim/undo")
+vim.opt.undodir = vim.fn.expand("~/.config/nvim/.undo")
 vim.opt.undofile = true
 vim.opt.undolevels = 1000
 

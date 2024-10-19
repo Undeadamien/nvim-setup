@@ -8,8 +8,9 @@ return require("packer").startup(function(use)
 	--ColorScheme
 	use("rebelot/kanagawa.nvim")
 	use("folke/tokyonight.nvim")
-	use({ "catppuccin/nvim", as = "catppuccin" })
+	use("olivercederborg/poimandres.nvim")
 	use({ "rose-pine/neovim", name = "rose-pine" })
+	use("slugbyte/lackluster.nvim")
 
 	--TreeSitter
 	use("nvim-treesitter/nvim-treesitter")
@@ -17,6 +18,9 @@ return require("packer").startup(function(use)
 
 	--ZenMode
 	use("folke/zen-mode.nvim")
+
+	--LuaLine
+	use({ "nvim-lualine/lualine.nvim", requires = { "nvim-tree/nvim-web-devicons", opt = true } })
 
 	--Telescope
 	use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } })
