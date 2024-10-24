@@ -45,3 +45,6 @@ vim.opt.undolevels = 1000
 
 --Other
 vim.opt.scrolloff = 8
+
+--Cmd alias/abbrev
+vim.cmd("cabbrev E Ex")
