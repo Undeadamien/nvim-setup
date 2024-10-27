@@ -31,6 +31,6 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	pattern = { "*.py" },
 	callback = function()
-		vim.api.nvim_command("silent !black %")
+		vim.api.nvim_command("silent !isort % && black %")
 	end,
 })
