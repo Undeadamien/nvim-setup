@@ -29,20 +29,16 @@ return require("packer").startup(function(use)
 	use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } })
 
 	--Lsp
-	use({
-		"VonHeikemen/lsp-zero.nvim",
-		branch = "v1.x",
-		requires = {
-			{ "neovim/nvim-lspconfig" },
-			{ "williamboman/mason.nvim" },
-			{ "williamboman/mason-lspconfig.nvim" },
-			{ "hrsh7th/nvim-cmp" },
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "L3MON4D3/LuaSnip" },
-			{ "hrsh7th/cmp-path" },
-			{ "hrsh7th/cmp-buffer" },
-		},
-	})
+	use({ "VonHeikemen/lsp-zero.nvim", branch = "v4.x" })
+	use("L3MON4D3/LuaSnip")
+	use("hrsh7th/cmp-buffer")
+	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-nvim-lua")
+	use("hrsh7th/cmp-path")
+	use("hrsh7th/nvim-cmp")
+	use("neovim/nvim-lspconfig")
+	use("saadparwaiz1/cmp_luasnip")
+	use("williamboman/mason-lspconfig.nvim")
 
 	--Git
 	use("tpope/vim-fugitive")
