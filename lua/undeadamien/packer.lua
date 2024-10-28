@@ -28,6 +28,9 @@ return require("packer").startup(function(use)
 	--Telescope
 	use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } })
 
+	--Comment
+	use({ "numToStr/Comment.nvim" })
+
 	--Lsp
 	use({ "VonHeikemen/lsp-zero.nvim", branch = "v4.x" })
 	use("L3MON4D3/LuaSnip")
