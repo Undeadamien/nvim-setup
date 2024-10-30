@@ -10,9 +10,9 @@ local function create_cpp_class()
 class %s {
 public:
     %s();
+    ~%s();
     %s(const %s& other);            
     %s& operator=(const %s& other); 
-    ~%s();
 
 protected:
 private:
