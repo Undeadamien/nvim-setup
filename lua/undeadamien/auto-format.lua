@@ -1,36 +1,16 @@
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-	pattern = { "*.hpp", "*.cpp" },
-	callback = function()
-		vim.api.nvim_command("silent !clang-format --style=google -i %")
-	end,
-})
+local formatters = {
+	{ pattern = { "*.hpp", "*.cpp" }, command = "clang-format --style=google -i %" },
+	{ pattern = { "*.css", "*.json", "*.jsonc" }, command = "prettier --trailing-comma=none --write %" },
+	{ pattern = { "*.lua" }, command = "stylua %" },
+	{ pattern = { "*.sh", "*.bashrc", "*.zshrc" }, command = "shfmt --write %" },
+	{ pattern = { "*.py" }, command = "isort % && black %" },
+}
 
---[[
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-	pattern = { "*.h", "*.c" },
-	callback = function()
-		vim.api.nvim_command("silent !python3 -m c_formatter_42 < % %")
-	end,
-})
---]]
-
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-	pattern = { "*.lua" },
-	callback = function()
-		vim.api.nvim_command("silent !stylua %")
-	end,
-})
-
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-	pattern = { "*.sh", "*.bashrc", "*.zshrc" },
-	callback = function()
-		vim.api.nvim_command("silent !shfmt --write %")
-	end,
-})
-
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-	pattern = { "*.py" },
-	callback = function()
-		vim.api.nvim_command("silent !isort % && black %")
-	end,
-})
+for _, formatter in ipairs(formatters) do
+	vim.api.nvim_create_autocmd("BufWritePost", {
+		pattern = formatter.pattern,
+		callback = function()
+			vim.api.nvim_command("silent !" .. formatter.command)
+		end,
+	})
+end
